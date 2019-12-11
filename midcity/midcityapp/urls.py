@@ -8,6 +8,8 @@ app_name = "events"
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('search', SearchView.as_view(), name='searh'),
+    path('contactus', views.contactus, name='contactus'),
+    path('aboutus', views.aboutus, name='aboutus'),
     path('organization/dashboard', include([
         path('', DashboardView.as_view(), name='organization-dashboard'),
         path('all-volunteerships', VolunteershipsListView.as_view(), name='organization-all-volunteerships'),
@@ -20,4 +22,5 @@ urlpatterns = [
     path('events', EventListView.as_view(), name='events'),
     path('events/<int:id>', EventDetailsView.as_view(), name='events-detail'),
     path('organization/events/create', EventCreateView.as_view(), name='organization-events-create'),
+
 ]

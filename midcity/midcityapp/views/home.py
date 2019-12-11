@@ -6,6 +6,8 @@ from django.utils import timezone
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, CreateView
 from django.db.models import F
+from django.shortcuts import render
+
 
 
 from ..forms import ApplyEventForm
@@ -97,3 +99,9 @@ class ApplyEventView(CreateView):
         form.instance.user = self.request.user
         form.save()
         return super().form_valid(form)
+
+def contactus(request):
+    return render(request, 'events/contactus.html', {'events': contactus})
+
+def aboutus(request):
+    return render(request, 'events/aboutus.html', {'events': aboutus})
